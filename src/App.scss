@@ -1,0 +1,19 @@
+#app {
+  height: 100vh;
+  width: 100vw;
+
+  .header {
+    font-size: 20px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  #phone {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+    height: 1000px;
+    margin: 10px auto;
+    width: 500px;
+  }
+}
