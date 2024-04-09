@@ -1,41 +1,10 @@
 import './App.scss';
 import { useState } from "react";
 
+import Calculator from "./calculator"
+
 function App() {
-  const [result, setResult] = useState([])
-
-  const addToResult = num => {
-    const newResult = [...result]
-
-    switch (newResult.length) {
-      case 0:
-        if (num >= 0 && num <= 9) {
-          newResult.push(num)
-        }
-
-        break;
-      case 1:
-        if (num == "+") {
-          newResult.push("+")
-        }
-
-        break;
-      case 2:
-        if (num >= 0 && num <= 9) {
-          newResult.push(num)
-        }
-      default:
-        if (num == "=") {
-          const total = result[0] + result[2]
-
-          newResult.push(num)
-          newResult.push(total)
-          newResult.push("       (Yes!, it works!!)")
-        }
-    }
-
-    setResult(newResult)
-  }
+  
 
   return (
     <div id="app">
@@ -45,33 +14,7 @@ function App() {
 
       <div className="header">This is what you'll build. Test it:)</div>
 
-      <div id="phone">
-        <div id="phone-header">{result.join(" ")}</div>
-        <div id="buttons">
-          <div className="button-row">
-            <div className="button-header" onClick={() => setResult([])}>CLEAR</div>
-          </div>
-          <div className="button-row">
-            <div className="button-header" onClick={() => addToResult(7)}>7</div>
-            <div className="button-header" onClick={() => addToResult(8)}>8</div>
-            <div className="button-header" onClick={() => addToResult(9)}>9</div>
-          </div>
-          <div className="button-row">
-            <div className="button-header" onClick={() => addToResult(4)}>4</div>
-            <div className="button-header" onClick={() => addToResult(5)}>5</div>
-            <div className="button-header" onClick={() => addToResult(6)}>6</div>
-          </div>
-          <div className="button-row">
-            <div className="button-header" onClick={() => addToResult(1)}>1</div>
-            <div className="button-header" onClick={() => addToResult(2)}>2</div>
-            <div className="button-header" onClick={() => addToResult(3)}>3</div>
-          </div>
-          <div className="button-row">
-            <div className="button-header" onClick={() => addToResult("+")}>+</div>
-            <div className="button-header" onClick={() => addToResult("=")}>=</div>
-          </div>
-        </div>
-      </div>
+      <Calculator/>
 
       <div className="header" style={{ marginTop: 300 }}>Now, Let's quickly build your own</div>
       <div className="header">Get the only app you need for this</div>
@@ -135,6 +78,8 @@ function App() {
               <br/><br/>
             </li>
             <li>Once done, you should see "✅ Your project is ready!" on your terminal</li>
+            <li>You should see a project folder on your desktop call "the-calculator"</li>
+            <li>Don't get overwhelm and confused with the folder. You will learn it step by step:)</li>
             <li>
               Now, login into your expo account on your terminal
               <br/><br/>
@@ -146,9 +91,73 @@ function App() {
             <li>Once done, you should see "Success. You are now logged in as [your username]"</li>
           </ul>
         </div>
-      </div>
 
-      <div className="header">YOUR ARE DONE WITH THE SETUP. LET'S BEGIN BUILDING</div>
+        <div className="header">YOUR ARE DONE WITH THIS EASY SETUP.<br/>NOW LET'S EASILY BUILD THE CALCULATOR</div>
+
+        <div className="header-item">
+          <div className="header-item-header">2. Getting to know the basic only</div>
+          <ul>
+            <li>Go inside the project folder (the-calculator) on your desktop</li>
+            <li>For this calculator app, the only file that you'll need to focus on is App.js.</li>
+            <li>All the code will be written inside the App.js file</li>
+            <li>You won't need to touch other files for this app</li>
+            <li>
+              Ok, navigate into the project folder on your terminal
+              <br/><br/>
+              <strong>cd ~/desktop/the-calculator</strong>
+              <br/><br/>
+            </li>
+            <li>
+              Start the app
+              <br/><br/>
+              <strong>npx expo start</strong>
+            </li>
+            <li>
+              Go on the Expo app on your phone, you should see this screen,
+              <div className="header-shot">
+                <img style={{ height: '100%', width: '100%' }} src="/app-shot.jpeg"/>
+              </div>
+            </li>
+            <li>Tap on the (the-calculator)</li>
+            <li>After loading, you should see the message on your phone "Open up App.js to start working on your app!"</li>
+            <li>Yes! Your app is running on your phone.</li>
+            <li>
+              From now, as long as your app is running on terminal, every code
+              you add/remove in App.js will automatically show up on your phone. Simple as that!
+            </li>
+
+          </ul>
+        </div>
+
+        <div className="header-item">
+          <div className="header-item-header">3. Getting to know the code</div>
+          <ul>
+            <li className="code-guide">
+              <div className="code-guide-header">
+                <code>
+                
+
+
+
+
+
+                
+
+
+
+
+
+
+                  
+                </code>
+              </div>
+              <div className="header-shot">
+                <img style={{ height: '100%', width: '100%' }} src="/app-js-intro.jpeg"/>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
