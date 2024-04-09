@@ -2,9 +2,8 @@
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
-  height: 570px;
-  margin: 10px auto;
-  width: 300px;
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
 
   #phone-header {
     border-style: solid;

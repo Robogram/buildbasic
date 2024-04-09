@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import Calculator from "./calculator"
 
-function App() {
-  
+export default function App() {
+  const [codeStep, setCodestep] = useState(0)
 
   return (
     <div id="app">
@@ -14,7 +14,9 @@ function App() {
 
       <div className="header">This is what you'll build. Test it:)</div>
 
-      <Calculator/>
+      <div style={{ height: 570, margin: '10px auto', width: 300 }}>
+        <Calculator/>
+      </div>
 
       <div className="header" style={{ marginTop: 300 }}>Now, Let's quickly build your own</div>
       <div className="header">Get the only app you need for this</div>
@@ -32,8 +34,10 @@ function App() {
 
       <div className="header">Once you created an account, you should see this screen</div>
 
-      <div className="header-shot">
-        <img style={{ height: '100%', width: '100%' }} src="/expo-newuser.jpeg"/>
+      <div className="header-shot-container">
+        <div className="header-shot">
+          <img style={{ height: '100%', width: '100%' }} src="/expo-newuser.jpeg"/>
+        </div>
       </div>
 
       <div className="header">DONE</div>
@@ -114,8 +118,10 @@ function App() {
             </li>
             <li>
               Go on the Expo app on your phone, you should see this screen,
-              <div className="header-shot">
-                <img style={{ height: '100%', width: '100%' }} src="/app-shot.jpeg"/>
+              <div className="header-shot-container">
+                <div className="header-shot">
+                  <img style={{ height: '100%', width: '100%' }} src="/app-shot.jpeg"/>
+                </div>
               </div>
             </li>
             <li>Tap on the (the-calculator)</li>
@@ -125,7 +131,6 @@ function App() {
               From now, as long as your app is running on terminal, every code
               you add/remove in App.js will automatically show up on your phone. Simple as that!
             </li>
-
           </ul>
         </div>
 
@@ -134,25 +139,75 @@ function App() {
           <ul>
             <li className="code-guide">
               <div className="code-guide-header">
-                <code>
-                
+                {(codeStep >= 0 && codeStep < 2) && <img style={{ height: 250, width: 320 }} src="/app-json-code.jpeg"/>}
+                <div id="infos">
+                  <ul>
+                    {codeStep == 0 && (
+                      <>
+                        <li>Everything in the above code creates the screen on the right</li>
+                        <li>react-native is a programming tool for developers to easily build mobile apps</li>
+                      </>
+                    )}
 
+                    {codeStep == 1 && (
+                      <>
+                        <li>There are many components we can use inside react-native but for this calculator, we will only need 4 components</li>
+                        <li>As you can see on line 1, we are importing the StyleSheet, Text and View components</li>
+                        <ul>
+                          <li><strong>StyleSheet</strong>: to put some style and color to the app</li>
+                          <li><strong>Text</strong>: to display some words for the app</li>
+                          <ul>
+                            <li>Like how you see "Open up App.js to start working on your app!" is wrapped in the Text component on line 6</li>
+                          </ul>
+                          <li><strong>View</strong>: A container for the app</li>
+                          <li><strong>TouchableOpacity</strong>: To enable touch button on the screen (not imported in the code above yet)</li>
+                        </ul>
+                      </>
+                    )}
 
+                    {codeStep == 2 && (
+                      <>
+                        <li>Ok, now back to the calculator</li>
+                        <li>Every square block on the calculator represents a View component</li>
+                        <li>Each symbol(+/-), number(0 - 9) and word(CLEAR) inside the View represents a Text component</li>
+                        <li>Ok, let begin. Press "NEXT" to add your first code</li>
+                      </>
+                    )}
 
+                    {codeStep == 3 && (
+                      <>
+                        <li>
+                          Let's clear the starting code first
+                          <br/><br/>
+                          <ul>
+                            <li>Remove the Text component in the App.js file</li>
+                          </ul>
+                        </li>
 
-
-                
-
-
-
-
-
-
-                  
-                </code>
+                        <li>Let's add the first View component at the top that will contain the answer</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+                {/* <div id="actions">
+                  {codeStep > 0 && (
+                    <div className="action" onClick={() => setCodestep(codeStep - 1)}>BACK</div>
+                  )}
+                  <div className="action" onClick={() => {
+                    if (codeStep < 3) {
+                      setCodestep(codeStep + 1)
+                    }
+                  }}>NEXT</div>
+                </div> */}
               </div>
-              <div className="header-shot">
-                <img style={{ height: '100%', width: '100%' }} src="/app-js-intro.jpeg"/>
+              <div className="header-shot-container">
+                {(codeStep >= 0 && codeStep < 2) && (
+                  <div className="header-shot">
+                    <img style={{ height: '100%', width: '100%' }} src="/app-js-intro.jpeg"/>
+                  </div>
+                )}
+
+                {(codeStep >= 2 && codeStep < 4) && <Calculator/>}
               </div>
             </li>
           </ul>
@@ -161,5 +216,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
