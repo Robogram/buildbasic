@@ -189,16 +189,18 @@ export default function App() {
                     )}
                   </ul>
                 </div>
-                {/* <div id="actions">
+                <div id="actions">
                   {codeStep > 0 && (
                     <div className="action" onClick={() => setCodestep(codeStep - 1)}>BACK</div>
                   )}
-                  <div className="action" onClick={() => {
-                    if (codeStep < 3) {
-                      setCodestep(codeStep + 1)
-                    }
-                  }}>NEXT</div>
-                </div> */}
+                  {codeStep < 1 && (
+                    <div className="action" onClick={() => {
+                      if (codeStep < 3) {
+                        setCodestep(codeStep + 1)
+                      }
+                    }}>NEXT</div>
+                  )}
+                </div>
               </div>
               <div className="header-shot-container">
                 {(codeStep >= 0 && codeStep < 2) && (
